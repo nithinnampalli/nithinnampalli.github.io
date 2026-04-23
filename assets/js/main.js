@@ -94,3 +94,35 @@
     el.addEventListener('mouseleave',()=>{cursor.classList.remove('hovering');follower.classList.remove('hovering');});
   });
 })();
+
+/* ============================================================
+   IMPACT COUNT-UP
+   ============================================================ */
+(function initCountUp() {
+  const cards = document.querySelectorAll('.impact-card');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      obs.unobserve(entry.target);
+      const card = entry.target;
+      const el   = card.querySelector('.count-val');
+      const type = card.dataset.countType;
+      if (type === 'text') {
+        const text = card.dataset.countText;
+        let i = 0; el.textContent = '';
+        const t = setInterval(() => { el.textContent = text.slice(0,++i); if(i>=text.length) clearInterval(t); }, 60);
+        return;
+      }
+      const end = parseInt(card.dataset.countEnd, 10);
+      const duration = 1200, start = performance.now();
+      function step(now) {
+        const progress = Math.min((now-start)/duration, 1);
+        const ease = 1-Math.pow(1-progress,3);
+        el.textContent = Math.round(ease*end);
+        if (progress<1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    });
+  }, { threshold: 0.4 });
+  cards.forEach(c => obs.observe(c));
+})();

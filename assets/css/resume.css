@@ -1,0 +1,63 @@
+/* ============================================================
+   ATS-OPTIMISED RESUME STYLES
+   Screen: readable; Print: clean PDF output
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: Arial, Calibri, 'Segoe UI', sans-serif;
+  font-size: 14px;
+  line-height: 1.55;
+  color: #111;
+  background: #fff;
+}
+
+.resume {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 40px;
+}
+
+.r-header { border-bottom: 2px solid #111; padding-bottom: 14px; margin-bottom: 20px; }
+.r-header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.5px; }
+.r-subtitle { font-size: 15px; color: #444; margin-top: 2px; margin-bottom: 8px; }
+.r-contact { display: flex; flex-wrap: wrap; gap: 4px 20px; font-size: 12px; color: #555; }
+
+.r-section { margin-bottom: 22px; }
+.r-section h2 {
+  font-size: 13px; text-transform: uppercase; letter-spacing: 0.12em;
+  color: #111; border-bottom: 1px solid #ddd;
+  padding-bottom: 4px; margin-bottom: 14px;
+}
+
+.r-job { margin-bottom: 18px; }
+.r-edu { margin-bottom: 10px; }
+.r-job-header {
+  display: flex; justify-content: space-between; align-items: baseline;
+  gap: 8px; flex-wrap: wrap;
+}
+.r-company { color: #444; font-size: 14px; }
+.r-date    { font-size: 12px; color: #666; white-space: nowrap; }
+.r-location { font-size: 12px; color: #888; margin: 2px 0 6px; }
+
+ul { margin: 6px 0 8px 18px; }
+li { margin-bottom: 4px; font-size: 13px; color: #222; }
+li strong { color: #000; }
+
+.r-section > p { font-size: 13px; color: #222; line-height: 1.65; }
+.r-tech { font-size: 12px; color: #555; margin-top: 4px; }
+
+.r-skills-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.r-skills-table td { padding: 5px 8px; vertical-align: top; }
+.r-skills-table tr:nth-child(even) { background: #f8f8f8; }
+.r-skills-table td:first-child { white-space: nowrap; color: #111; width: 200px; }
+.r-skills-table td:last-child { color: #333; }
+
+@media print {
+  body  { font-size: 11pt; }
+  .resume { margin: 0; padding: 0 20pt; max-width: 100%; }
+  .r-header h1 { font-size: 20pt; }
+  .r-section h2 { font-size: 9pt; }
+  .r-job, .r-edu { break-inside: avoid; }
+  a { color: #000; text-decoration: none; }
+}

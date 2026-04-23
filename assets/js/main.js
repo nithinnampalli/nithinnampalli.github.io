@@ -154,3 +154,120 @@
     steps.forEach(s => s.classList.remove('active')); current = 0;
   }
 })();
+
+/* ============================================================
+   COMMAND PALETTE
+   ============================================================ */
+(function initCommandPalette() {
+  const overlay = document.getElementById('paletteOverlay');
+  const input   = document.getElementById('paletteInput');
+  const results = document.getElementById('paletteResults');
+  if (!overlay) return;
+
+  const commands = [
+    { icon: '🏠', label: 'Go to Home',      action: () => nav('#hero'),       group: 'Navigate' },
+    { icon: '⚡', label: 'Go to Impact',     action: () => nav('#impact'),     group: 'Navigate' },
+    { icon: '👤', label: 'Go to About',      action: () => nav('#about'),      group: 'Navigate' },
+    { icon: '📋', label: 'Go to Experience', action: () => nav('#experience'), group: 'Navigate' },
+    { icon: '🛠', label: 'Go to Skills',     action: () => nav('#skills'),     group: 'Navigate' },
+    { icon: '🚀', label: 'Go to Projects',   action: () => nav('#projects'),   group: 'Navigate' },
+    { icon: '✉️', label: 'Go to Contact',    action: () => nav('#contact'),    group: 'Navigate' },
+    { icon: '📄', label: 'View Resume',      action: () => window.open('resume.html','_blank'), group: 'Actions' },
+    { icon: '💼', label: 'Open LinkedIn',    action: () => window.open('https://www.linkedin.com/in/nithin-nampalli/','_blank'), group: 'Actions' },
+    { icon: '🐙', label: 'Open GitHub',      action: () => window.open('https://github.com/nithinnampalli','_blank'), group: 'Actions' },
+    { icon: '✉️', label: 'Send Email',       action: () => { location.href='mailto:nithin.nampalli@gmail.com'; }, group: 'Actions' },
+  ];
+
+  function nav(sel) { document.querySelector(sel)?.scrollIntoView({ behavior: 'smooth' }); }
+
+  let selected = 0;
+
+  function openPalette() {
+    overlay.classList.add('open');
+    input.value = ''; selected = 0;
+    renderItems('');
+    setTimeout(() => input.focus(), 50);
+  }
+  function closePalette() { overlay.classList.remove('open'); }
+
+  function renderItems(query) {
+    const q = query.toLowerCase();
+    const filtered = commands.filter(c => c.label.toLowerCase().includes(q));
+    results.innerHTML = '';
+    let lastGroup = '';
+    filtered.forEach((cmd, i) => {
+      if (cmd.group !== lastGroup) {
+        const lbl = document.createElement('div');
+        lbl.className = 'palette-section-label';
+        lbl.textContent = cmd.group;
+        results.appendChild(lbl);
+        lastGroup = cmd.group;
+      }
+      const li = document.createElement('li');
+      li.className = 'palette-item' + (i === selected ? ' selected' : '');
+      li.innerHTML = `<span class="palette-item-icon">${cmd.icon}</span><span class="palette-item-label">${cmd.label}</span>`;
+      li.addEventListener('click', () => { cmd.action(); closePalette(); });
+      results.appendChild(li);
+    });
+    selected = Math.min(selected, Math.max(filtered.length - 1, 0));
+  }
+
+  document.addEventListener('keydown', e => {
+    if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+      e.preventDefault();
+      overlay.classList.contains('open') ? closePalette() : openPalette();
+    }
+    if (!overlay.classList.contains('open')) return;
+    if (e.key === 'Escape') closePalette();
+    if (e.key === 'ArrowDown') { selected++; renderItems(input.value); }
+    if (e.key === 'ArrowUp')   { selected = Math.max(0, selected-1); renderItems(input.value); }
+    if (e.key === 'Enter') {
+      const items = results.querySelectorAll('.palette-item');
+      if (items[selected]) items[selected].click();
+    }
+  });
+  input.addEventListener('input', e => { selected = 0; renderItems(e.target.value); });
+  overlay.addEventListener('click', e => { if (e.target === overlay) closePalette(); });
+})();
+
+/* ============================================================
+   SCROLL REVEAL
+   ============================================================ */
+(function initScrollReveal() {
+  const els = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  els.forEach(el => obs.observe(el));
+})();
+
+/* ============================================================
+   ACTIVE NAV ON SCROLL
+   ============================================================ */
+(function initActiveNav() {
+  const sections = document.querySelectorAll('section[id]');
+  const links    = document.querySelectorAll('.nav-link');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + e.target.id));
+      }
+    });
+  }, { rootMargin: '-40% 0px -55% 0px' });
+  sections.forEach(s => obs.observe(s));
+})();
+
+/* ============================================================
+   MOBILE NAV TOGGLE
+   ============================================================ */
+(function initMobileNav() {
+  const toggle = document.getElementById('navToggle');
+  const navbar = document.getElementById('navbar');
+  if (!toggle) return;
+  toggle.addEventListener('click', () => navbar.classList.toggle('open'));
+  document.querySelectorAll('.nav-link').forEach(l => {
+    l.addEventListener('click', () => navbar.classList.remove('open'));
+  });
+})();

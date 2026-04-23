@@ -555,3 +555,41 @@ kbd {
   letter-spacing: 0.1em; text-transform: uppercase;
   color: var(--muted); opacity: 0.6;
 }
+
+/* ============================================================
+   NOTABLE CLIENTS STRIP
+   ============================================================ */
+.clients-strip {
+  padding: 24px 32px;
+  border-top: 1px solid var(--glass-border);
+  border-bottom: 1px solid var(--glass-border);
+  background: rgba(124,58,237,0.03);
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.clients-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.clients-track {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.client-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+  transition: color var(--transition);
+}
+.client-name:hover { color: var(--text); }
+.client-sep { color: var(--glass-border); font-size: 16px; }

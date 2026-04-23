@@ -126,3 +126,31 @@
   }, { threshold: 0.4 });
   cards.forEach(c => obs.observe(c));
 })();
+
+/* ============================================================
+   POLICY ENGINE FLOW ANIMATION
+   ============================================================ */
+(function initPolicyFlow() {
+  const steps = document.querySelectorAll('.flow-step');
+  const card  = document.getElementById('policyEngineCard');
+  if (!steps.length || !card) return;
+  let current = 0, timer;
+
+  const obs = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting) startFlow(); else stopFlow();
+  }, { threshold: 0.3 });
+  obs.observe(card);
+
+  function startFlow() {
+    if (timer) return;
+    timer = setInterval(() => {
+      steps.forEach(s => s.classList.remove('active'));
+      steps[current].classList.add('active');
+      current = (current + 1) % steps.length;
+    }, 900);
+  }
+  function stopFlow() {
+    clearInterval(timer); timer = null;
+    steps.forEach(s => s.classList.remove('active')); current = 0;
+  }
+})();

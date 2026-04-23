@@ -304,9 +304,184 @@
     </div>
   </div>
 </section>
-    <section id="skills"></section>
-    <section id="projects"></section>
-    <section id="contact"></section>
+    <section id="skills" class="section section--alt">
+  <div class="section-inner">
+    <div class="accent-bar"></div>
+    <p class="section-label">Skills</p>
+    <h2 class="section-title">Tech Stack</h2>
+    <div class="skills-grid reveal">
+      <div class="glass-card skill-group">
+        <h3 class="skill-group-title">☁️ Cloud &amp; Infrastructure</h3>
+        <div class="skill-chips">
+          <span class="chip chip--cyan">AWS Lambda</span>
+          <span class="chip chip--cyan">Amazon ECS</span>
+          <span class="chip chip--cyan">API Gateway</span>
+          <span class="chip chip--cyan">DynamoDB</span>
+          <span class="chip chip--cyan">Docker</span>
+          <span class="chip chip--cyan">Kubernetes</span>
+          <span class="chip chip--cyan">GCP</span>
+        </div>
+      </div>
+      <div class="glass-card skill-group">
+        <h3 class="skill-group-title">💻 Languages</h3>
+        <div class="skill-chips">
+          <span class="chip chip--violet">C#</span>
+          <span class="chip chip--violet">Java</span>
+          <span class="chip chip--violet">JavaScript</span>
+          <span class="chip chip--violet">TypeScript</span>
+          <span class="chip chip--violet">Python</span>
+        </div>
+      </div>
+      <div class="glass-card skill-group">
+        <h3 class="skill-group-title">⚛️ Frontend</h3>
+        <div class="skill-chips">
+          <span class="chip chip--violet">React.js</span>
+          <span class="chip chip--violet">Node.js</span>
+          <span class="chip chip--violet">HTML/CSS</span>
+          <span class="chip chip--violet">REST APIs</span>
+        </div>
+      </div>
+      <div class="glass-card skill-group">
+        <h3 class="skill-group-title">🤖 AI &amp; Integrations</h3>
+        <div class="skill-chips">
+          <span class="chip chip--green">Claude API</span>
+          <span class="chip chip--green">Gemini</span>
+          <span class="chip chip--green">Cursor</span>
+          <span class="chip chip--green">LLM Integration</span>
+          <span class="chip chip--green">Event-Driven Architecture</span>
+        </div>
+      </div>
+      <div class="glass-card skill-group">
+        <h3 class="skill-group-title">📊 Observability &amp; DevOps</h3>
+        <div class="skill-chips">
+          <span class="chip chip--cyan">DataDog</span>
+          <span class="chip chip--cyan">Jenkins</span>
+          <span class="chip chip--cyan">Azure DevOps</span>
+          <span class="chip chip--cyan">Git</span>
+          <span class="chip chip--cyan">CI/CD</span>
+        </div>
+      </div>
+      <div class="glass-card skill-group">
+        <h3 class="skill-group-title">🧪 Testing &amp; QA</h3>
+        <div class="skill-chips">
+          <span class="chip chip--violet">Selenium</span>
+          <span class="chip chip--violet">Cypress</span>
+          <span class="chip chip--violet">WebDriverIO</span>
+          <span class="chip chip--violet">BDD/Cucumber</span>
+          <span class="chip chip--violet">Postman</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+    <section id="projects" class="section">
+  <div class="section-inner">
+    <div class="accent-bar"></div>
+    <p class="section-label">Featured Work</p>
+    <h2 class="section-title">What I've Built</h2>
+    <div class="projects-grid">
+
+      <div class="glass-card project-card project-card--featured reveal" id="policyEngineCard">
+        <div class="project-header">
+          <span class="project-tag">Checkout.com · 2022–Present</span>
+          <span class="chip chip--cyan">Featured</span>
+        </div>
+        <h3 class="project-title">Policy Engine</h3>
+        <p class="project-desc">Region-aware compliance decisioning system governing merchant onboarding across 8 global markets. Evaluates country-specific regulatory rules in real time for every new merchant.</p>
+        <div class="policy-flow" id="policyFlow" aria-label="Policy engine decision flow">
+          <div class="flow-step" data-step="0">🌐 Merchant URL</div>
+          <div class="flow-arrow" aria-hidden="true">→</div>
+          <div class="flow-step" data-step="1">🤖 AI Screening</div>
+          <div class="flow-arrow" aria-hidden="true">→</div>
+          <div class="flow-step" data-step="2">🌍 Region Check</div>
+          <div class="flow-arrow" aria-hidden="true">→</div>
+          <div class="flow-step" data-step="3">⚖️ Compliance</div>
+          <div class="flow-arrow" aria-hidden="true">→</div>
+          <div class="flow-step flow-step--decision" data-step="4">✅ Decision</div>
+        </div>
+        <div class="project-chips">
+          <span class="chip chip--cyan">C#</span>
+          <span class="chip chip--cyan">AWS Lambda</span>
+          <span class="chip chip--cyan">DynamoDB</span>
+          <span class="chip chip--cyan">Event-Driven</span>
+          <span class="chip chip--cyan">API Gateway</span>
+        </div>
+      </div>
+
+      <div class="glass-card project-card reveal">
+        <div class="project-header">
+          <span class="project-tag">Checkout.com · 2023</span>
+        </div>
+        <h3 class="project-title">AI Merchant URL Screener</h3>
+        <p class="project-desc">LLM-powered system that classifies Merchant Category Codes (MCC) directly from URLs, eliminating 1–2 hours of manual review per merchant onboarded.</p>
+        <div class="project-impact">
+          <span class="impact-pill">⚡ 1–2 hrs saved / merchant</span>
+          <span class="impact-pill">🤖 LLM-based classification</span>
+        </div>
+        <div class="project-chips">
+          <span class="chip chip--green">Claude API</span>
+          <span class="chip chip--green">Gemini</span>
+          <span class="chip chip--cyan">AWS</span>
+          <span class="chip chip--violet">C#</span>
+        </div>
+      </div>
+
+      <div class="glass-card project-card reveal">
+        <div class="project-header">
+          <span class="project-tag">Checkout.com · 2024</span>
+        </div>
+        <h3 class="project-title">Merchant Requirements Automation</h3>
+        <p class="project-desc">Automated flow that raises compliance requirements directly to merchants, replacing manual agent review and cutting merchant Time-to-Live from days to hours.</p>
+        <div class="project-impact">
+          <span class="impact-pill">🚀 Days → Hours TTL</span>
+          <span class="impact-pill">📉 Reduced agent workload</span>
+        </div>
+        <div class="project-chips">
+          <span class="chip chip--cyan">ECS</span>
+          <span class="chip chip--cyan">API Gateway</span>
+          <span class="chip chip--violet">React.js</span>
+          <span class="chip chip--cyan">DataDog</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+    <section id="contact" class="section section--alt">
+  <div class="section-inner">
+    <div class="accent-bar"></div>
+    <p class="section-label">Contact</p>
+    <h2 class="section-title">Let's Talk</h2>
+    <p class="contact-sub">Open to Senior Software Engineer and Staff Engineer opportunities at Fintechs, payments companies, and cloud-native startups.</p>
+    <div class="contact-grid reveal">
+      <a href="mailto:nithin.nampalli@gmail.com" class="glass-card contact-card magnetic">
+        <span class="contact-icon">✉️</span>
+        <span class="contact-label">Email</span>
+        <span class="contact-value">nithin.nampalli@gmail.com</span>
+      </a>
+      <a href="https://www.linkedin.com/in/nithin-nampalli/" target="_blank" rel="noopener" class="glass-card contact-card magnetic">
+        <span class="contact-icon">💼</span>
+        <span class="contact-label">LinkedIn</span>
+        <span class="contact-value">nithin-nampalli</span>
+      </a>
+      <a href="https://github.com/nithinnampalli" target="_blank" rel="noopener" class="glass-card contact-card magnetic">
+        <span class="contact-icon">🐙</span>
+        <span class="contact-label">GitHub</span>
+        <span class="contact-value">nithinnampalli</span>
+      </a>
+      <a href="resume.html" target="_blank" class="glass-card contact-card magnetic">
+        <span class="contact-icon">📄</span>
+        <span class="contact-label">Resume</span>
+        <span class="contact-value">View &amp; Download PDF</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Nithin Nampalli · London, UK · <span class="footer-mono">Senior Software Engineer</span></p>
+  <p class="footer-kbd">Press <kbd>⌘K</kbd> to navigate</p>
+</footer>
   </main>
 
   <!-- Command palette -->

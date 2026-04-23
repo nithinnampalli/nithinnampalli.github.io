@@ -1,675 +1,530 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>nithin-nampalli Portfolio</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+  <!-- SEO -->
+  <title>Nithin Nampalli — Senior Software Engineer | Fintech | AWS | C#</title>
+  <meta name="description" content="Senior Software Engineer at Checkout.com. Specialising in Fintech platform engineering, AWS cloud-native systems, C#, React.js and AI integrations. Based in London, UK.">
+  <meta name="keywords" content="Senior Software Engineer, Fintech, AWS Lambda, ECS, DynamoDB, C#, React, API Gateway, DataDog, Policy Engine, Checkout.com, London">
 
-  <!-- Favicons -->
-  <link href="assets/img/portfolio.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Nithin Nampalli — Senior Software Engineer">
+  <meta property="og:description" content="Fintech platform engineer at Checkout.com. Policy engines, AI integrations, AWS Lambda, ECS, DynamoDB.">
+  <meta property="og:url" content="https://nithinnampalli.github.io">
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <!-- Favicon -->
+  <link rel="icon" href="assets/img/favicon.png">
 
-  <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
-
-  <!-- =======================================================
-  * Template Name: MyResume - v4.7.0
-  * Template URL: https://bootstrapmade.com/free-html-bootstrap-template-my-resume/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
-
 <body>
 
-  <!-- ======= Mobile nav toggle button ======= -->
-  <!-- <button type="button" class="mobile-nav-toggle d-xl-none"><i class="bi bi-list mobile-nav-toggle"></i></button> -->
-  <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
-  <!-- ======= Header ======= -->
-  <header id="header" class="d-flex flex-column justify-content-center">
+  <!-- Custom cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
 
-    <nav id="navbar" class="navbar nav-menu">
-      <ul>
-        <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
-        <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li>
-        <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Resume</span></a></li>
-        <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Portfolio</span></a></li>
-        <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>
-      </ul>
-    </nav><!-- .nav-menu -->
+  <!-- Left nav -->
+  <nav id="navbar">
+    <div class="nav-logo">N</div>
+    <ul class="nav-links">
+      <li><a href="#hero"       class="nav-link active" data-label="Home">       <span class="nav-dot"></span></a></li>
+      <li><a href="#about"      class="nav-link"        data-label="About">      <span class="nav-dot"></span></a></li>
+      <li><a href="#experience" class="nav-link"        data-label="Experience"> <span class="nav-dot"></span></a></li>
+      <li><a href="#skills"     class="nav-link"        data-label="Skills">     <span class="nav-dot"></span></a></li>
+      <li><a href="#projects"   class="nav-link"        data-label="Projects">   <span class="nav-dot"></span></a></li>
+      <li><a href="#impact"     class="nav-link"        data-label="Impact">     <span class="nav-dot"></span></a></li>
+      <li><a href="#contact"    class="nav-link"        data-label="Contact">    <span class="nav-dot"></span></a></li>
+    </ul>
+  </nav>
 
-  </header><!-- End Header -->
+  <!-- Mobile nav toggle -->
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+    <span></span><span></span><span></span>
+  </button>
 
-  <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex flex-column justify-content-center">
-    <div class="container" data-aos="zoom-in" data-aos-delay="100">
-      <h1>Nithin Nampalli</h1>
-      <p>I'm <span class="typed" data-typed-items="a Sr. Software Development Engineer in Test 😀"></span></p>
-      <p><em> London, United Kingdom</em></p>
-      <div class="social-links">
-        <a href="https://www.linkedin.com/in/nithin-nampalli/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-        <a href="https://www.facebook.com/nithin13n/" class="facebook"><i class="bx bxl-facebook"></i></a>
-        <a href="https://www.instagram.com/venkynithin/?hl=en" class="instagram"><i class="bx bxl-instagram"></i></a>
-        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-        <a href="mailto:nithin.nampalli@gmail.com" class="email"><i class="bi bi-envelope"></i></a>
-        <!-- <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a> -->
+  <main>
+    <section id="hero">
+  <canvas id="paymentGraph"></canvas>
+  <div class="hero-content reveal">
+    <p class="hero-eyebrow">Based in London, UK · Checkout.com</p>
+    <h1 class="hero-name">Nithin Nampalli</h1>
+    <p class="hero-role">
+      <span class="typed-role" id="typedRole"></span><span class="typed-cursor" aria-hidden="true">|</span>
+    </p>
+    <div class="hero-links">
+      <a href="https://www.linkedin.com/in/nithin-nampalli/" class="hero-btn magnetic" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/nithinnampalli" class="hero-btn magnetic" target="_blank" rel="noopener">GitHub</a>
+      <a href="mailto:nithin.nampalli@gmail.com" class="hero-btn magnetic">Email</a>
+      <a href="resume.html" class="hero-btn hero-btn--outline magnetic" target="_blank">Resume ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- AI Badge Ticker — immediately after hero section -->
+<div class="ai-ticker" aria-hidden="true">
+  <div class="ai-ticker-track">
+    <span>Claude AI</span><span>·</span>
+    <span>Gemini</span><span>·</span>
+    <span>Cursor</span><span>·</span>
+    <span>AWS Lambda</span><span>·</span>
+    <span>Amazon ECS</span><span>·</span>
+    <span>DynamoDB</span><span>·</span>
+    <span>DataDog</span><span>·</span>
+    <span>C#</span><span>·</span>
+    <span>React.js</span><span>·</span>
+    <span>Event-Driven</span><span>·</span>
+    <span>Claude AI</span><span>·</span>
+    <span>Gemini</span><span>·</span>
+    <span>Cursor</span><span>·</span>
+    <span>AWS Lambda</span><span>·</span>
+    <span>Amazon ECS</span><span>·</span>
+    <span>DynamoDB</span><span>·</span>
+    <span>DataDog</span><span>·</span>
+    <span>C#</span><span>·</span>
+    <span>React.js</span><span>·</span>
+    <span>Event-Driven</span><span>·</span>
+  </div>
+</div>
+    <section id="about" class="section section--alt">
+  <div class="section-inner">
+    <div class="accent-bar"></div>
+    <p class="section-label">About</p>
+    <h2 class="section-title">Building the infrastructure<br>payments run on.</h2>
+    <div class="about-grid reveal">
+      <div class="about-bio">
+        <p>Senior Software Engineer specialising in Fintech platform engineering, cloud-native distributed systems, and <strong>AI platform engineering</strong>. Currently at <strong>Checkout.com</strong> building the merchant onboarding platform — designing policy engines, automating compliance workflows, and integrating LLMs (Claude AI, Gemini, Cursor) to accelerate risk assessment across 8+ global regions.</p>
+        <p>Strong hands-on practice with <strong>AI tooling and AI integrations</strong> — connecting LLM APIs directly into production applications, setting up AI-driven automation pipelines, and embedding intelligence into onboarding and risk workflows. Over 12 years of engineering experience across Fintech, enterprise and SaaS — working with clients including <strong>Checkout.com, ASOS, O2, Cigna, Volvo Cars, Arrow Electronics</strong> and <strong>DocuSign</strong>.</p>
+      </div>
+      <div class="about-details glass-card">
+        <div class="about-detail-row">
+          <span class="about-detail-label">Location</span>
+          <span>London, UK</span>
+        </div>
+        <div class="about-detail-row">
+          <span class="about-detail-label">Current Role</span>
+          <span>Senior Software Engineer</span>
+        </div>
+        <div class="about-detail-row">
+          <span class="about-detail-label">Company</span>
+          <span>Checkout.com</span>
+        </div>
+        <div class="about-detail-row">
+          <span class="about-detail-label">Education</span>
+          <span>B.Tech ECE · Executive MBA</span>
+        </div>
+        <div class="about-detail-row">
+          <span class="about-detail-label">Open to</span>
+          <span class="open-badge">Senior SWE · Staff Eng</span>
+        </div>
       </div>
     </div>
-  </section><!-- End Hero -->
+  </div>
+</section>
 
-  <main id="main">
+<!-- Notable Clients Strip -->
+<div class="clients-strip">
+  <p class="clients-label">Trusted by</p>
+  <div class="clients-track">
+    <span class="client-name">Checkout.com</span>
+    <span class="client-sep">·</span>
+    <span class="client-name">ASOS</span>
+    <span class="client-sep">·</span>
+    <span class="client-name">O2 Telefonica</span>
+    <span class="client-sep">·</span>
+    <span class="client-name">Cigna</span>
+    <span class="client-sep">·</span>
+    <span class="client-name">Volvo Cars</span>
+    <span class="client-sep">·</span>
+    <span class="client-name">DocuSign</span>
+    <span class="client-sep">·</span>
+    <span class="client-name">Arrow Electronics</span>
+    <span class="client-sep">·</span>
+    <span class="client-name">Microsoft</span>
+  </div>
+</div>
 
-    <!-- ======= About Section ======= -->
-    <section id="about" class="about">
-      <div class="container" data-aos="fade-up">
+    <section id="experience" class="section">
+  <div class="section-inner">
+    <div class="accent-bar"></div>
+    <p class="section-label">Experience</p>
+    <h2 class="section-title">Career Timeline</h2>
+    <div class="timeline">
 
-        <div class="section-title">
-          <h2>About</h2>
-          <p>I am a highly competent IT professional with expertise in designing and developing automation frameworks, developing and maintaining API/microservices applications, and managing CI/CD environments. I have strong technical skills as well as excellent interpersonal skills, enabling me to interact with a wide range of clients. I am eager to be challenged in order to grow and further improve my IT skills. My greatest passion is in life is using my technical know-how to benefit other people and organisations.</p>
-        </div>
-
-        <div class="row">
-          <div class="col-lg-4">
-            <img src="assets/img/profile-img.jpg" class="img-fluid" alt="">
-          </div>
-          <div class="col-lg-8 pt-4 pt-lg-0 content">
-            <h3>Sr. Software Development Engineer in Test &amp; API Developer.</h3>
-            <p class="fst-italic">
-              A few details about me.
-            </p>
-            <div class="row">
-              <div class="col-lg-6">
-                <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>13th July 1992</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Full Name:</strong> <span>Venkat Sai Nithin Nampalli</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>+44-07466908790</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>London, UK</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Visa Status:</strong> <span><p>Skilled Worker Permit</p></span></li>
-                </ul>
-              </div>
-              <div class="col-lg-6">
-                <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Current Employer:</strong> <span>Cognizant UK&I</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>Bachelors of Technology</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span><a href="#">nithin.nampalli@gmail.com</a></span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Citizenship:</strong> <span>Indian</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Freelance:</strong> <span>Available</span></li>
-                </ul>
-              </div>
-        </div>
-
-      </div>
-    </section><!-- End About Section -->
-
-    <!-- ======= Facts Section ======= -->
-    <section id="facts" class="facts">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
-          <h2>Facts</h2>
-          <p></p>
-        </div>
-
-        <div class="row">
-          
-          
-          <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
-            <div class="count-box">
-              <i class="bi bi-arrow-up-short"></i>
-              <span data-purecounter-start="0" data-purecounter-end="8" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Years Of Experience</p>
+      <div class="timeline-item timeline-item--featured reveal">
+        <div class="timeline-marker"><span class="timeline-dot timeline-dot--accent"></span></div>
+        <div class="glass-card timeline-card">
+          <div class="timeline-header">
+            <div>
+              <h3 class="timeline-role">Senior Software Engineer</h3>
+              <p class="timeline-company">Checkout.com</p>
+            </div>
+            <div class="timeline-meta">
+              <span class="timeline-date">Jun 2022 – Present</span>
+              <span class="timeline-location">London, UK</span>
             </div>
           </div>
-
-          <div class="col-lg-3 col-md-6">
-            <div class="count-box">
-              <i class="bi bi-emoji-smile"></i>
-              <span data-purecounter-start="0" data-purecounter-end="8" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Associated Clients</p>
-            </div>
+          <div class="timeline-chips">
+            <span class="chip chip--cyan">C#</span>
+            <span class="chip chip--cyan">AWS Lambda</span>
+            <span class="chip chip--cyan">ECS</span>
+            <span class="chip chip--cyan">DynamoDB</span>
+            <span class="chip chip--green">Claude AI</span>
+            <span class="chip chip--green">Gemini</span>
+            <span class="chip chip--cyan">DataDog</span>
+            <span class="chip chip--cyan">React.js</span>
           </div>
-
-          <div class="col-lg-3 col-md-6 mt-5 mt-md-0">
-            <div class="count-box">
-              <i class="bi bi-journal-richtext"></i>
-              <span data-purecounter-start="0" data-purecounter-end="11" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Projects</p>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
-            <div class="count-box">
-              <i class="bi bi-award"></i>
-              <span data-purecounter-start="0" data-purecounter-end="6" data-purecounter-duration="1" class="purecounter">+</span>
-              <p>Awards</p>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section><!-- End Facts Section -->
-
-    <!-- ======= Skills Section ======= -->
-    <section id="skills" class="skills section-bg">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
-          <h2>Skills</h2>
-          <p>I am a tech savvy and thrive to learn new skills. I learn to grow and I grow to learn, after all Nobody born a developer. </p>
-        </div>
-
-        <div class="row skills-content">
-
-          <div class="col-lg-3">
-
-            <div class="progress">
-              <span class="skill">Java <i class="val">80%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">C# <i class="val">70%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">JavaScript <i class="val">70%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">REST API <i class="val">70%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill"> Spring/SpringBoot <i class="val">60%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill"> Micronaut <i class="val">60%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-          </div>
-
-          <div class="col-lg-3">
-
-            <div class="progress">
-              <span class="skill"> Selenium <i class="val">90%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill"> Cypress <i class="val">90%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill"> WebDriverIo <i class="val">75%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-            <div class="progress">
-              <span class="skill"> BDD(Cucumber/SpecFlow) <i class="val">80%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">SoapUI/Postman <i class="val">90%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">TestNG <i class="val">75%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-
-          </div>
-
-          <div class="col-lg-3">
-            <div class="progress">
-              <span class="skill"> Jenkins <i class="val">75%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill"> Azure DevOps <i class="val">60%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill"> BrowserStack/SauceLabs/Grid <i class="val">90%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-            
-            <div class="progress">
-              <span class="skill">JUnit <i class="val">75%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill"> MSTest/NUnit <i class="val">70%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill"> Database(SQL/MongoDB/PostgreSQL) <i class="val">70%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-          </div>
-
-          <div class="col-lg-3">
-            <div class="progress">
-              <span class="skill"> GIT <i class="val">80%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill"> Maven/Gradle <i class="val">70%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill"> Docker/Docker Swarm <i class="val">70%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-            
-            <div class="progress">
-              <span class="skill">JSON/YAML<i class="val">80%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill"> Google Cloud <i class="val">60%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill"> Node.js <i class="val">60%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-      </div>
-    </section><!-- End Skills Section -->
-
-    <!-- ======= Resume Section ======= -->
-    <section id="resume" class="resume">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
-          <h2>Resume</h2>
-          <h3>Sr. Software Development Engineer in Test - SDET</h3>
-        </div>
-
-        <div class="row">
-          <div class="col-lg-6">
-            <h3 class="resume-title">Sumary</h3>
-            <div class="resume-item pb-0">
-              <h4>Nithin Nampalli</h4>
-              <p><em>Over 8 Years of experience Working as a Senior Assosicate SDET in a Scrum team, defining the test strategy and leading the testing activities as well as developing API based applications to deploy in Cloud based production environments.</em></p>
-              <ul>
-                <li>Expertise in various automation tools like Selenium, Cypress, WebDriverIo, SoapUi, Postman, BDD, Karate, UFT/QTP, and WorkSoft Certify etc. </li>
-                <li>Experience in developing and testing API based applications using Java/C#/Python/JavaScript and designed and developed multiple frameworks based on different applications.  </li>
-                <li>Expertise in Agile methodology and Automation within Agile Sprints and contributed to Automation as a QE/SDET in a Scrum Team.  </li>
-                <li>Configuring and maintaining DevOps practices and tools using Azure DevOps, Jenkins, and TeamCity and Docker Containers used as test execution environments.  </li>
-                <li>Experience in BDD framework using Cucumber/SpecFlow and automated various applications.  </li>
-                <li>Provisioning Cloud based environments, managing Pipelines in Jenkins and Azure DevOps Jobs and deploying applications successfully.  </li>
-                <li>Worked on automating different applications like Web, Mobile, Windows and API based.  </li>
-                <li>Liaising and working with diversified stakeholders in complex enterprise environments.  </li>
-                <li>Experience in Containerized, Cloud based, headless and cross browser Developments and executions.  </li>
-              </ul>
-            </div>
-
-            <h3 class="resume-title">Education</h3>
-            <div class="resume-item">
-              <h4>Executive MBA</h4>
-              <h5>2019 - 2020</h5>
-              <h5>VOU</h5>
-              <p><em>Venkateshwara Open University, India</em></p>
-              <p>Business Leadership</p>
-            </div>
-            <div class="resume-item">
-              <h4>Bachelor of Technology</h4>
-              <h5>2009 - 2013</h5>
-              <h5>JNTU Hyderabad</h5>
-              <p><em>Mahaveer Institute of Science &amp; Technology, Hyderabad, India</em></p>
-              <p>Electronics and Communications Engineering</p>
-            </div>
-          </div>
-          <div class="col-lg-6">
-            <h3 class="resume-title">Professional Experience</h3>
-            <div class="resume-item">
-              <h4>Senior Associate</h4>
-              <h5>Cognizant UKI</h5>
-              <h5>November 2021 - Present</h5>
-              <h5>London, United Kingdom </h5>
-              <ul>
-                <li>Working as a Senior Associate, designing and deriving test strategy of ASOS Payment systems</li>
-                <li>Designing and implementing a framework from scratch and automated tests</li>
-              </ul>
-            </div>
-            <div class="resume-item">
-              <h4>Software Development Engineer in Test</h4>
-              <h5>DocuSign(Seal Software)</h5>
-              <h5>August - November, 2021</h5>
-              <h5>Gothenburg, Sweden</h5>
-              <ul>
-                <li>Working as an SDET as part of SAAS Analytics team and a member of a Scrum team</li>
-                <li>Designed and implemented a framework from scratch and automated tests in a microservices(Micronaut) oriented application</li>
-                <li>Creating and maintaining CT Pipelines in Jenkins and deploying the test beds in a Docker environments using Docker Swarm or Kuberenets on GCP</li>
-              </ul>
-            </div>
-            <div class="resume-item">
-              <h4>SDET & TA </h4>
-              <h5>Infosys Limited, Gothenburg Sweden</h5>
-              <h5>May 2019 - August 2021</h5>
-              <h5>Infosys Limited, Hyderabad India</h5>
-              <h5>April 2018 - May 2019</h5>
-              <p><em>Gothenburg, Sweden</em></p>
-              <ul>
-                <li>Working as an SDET as part of Scrum, Devloping and testing the User stories to deliver within the Sprint.</li>
-                <li>Designed and implemented a framework from scratch and automated tests using various technologies</li>
-                <li>Automating API based tests using SOAP UI and Executing and maintaining Regression suits with number of test cases and enhancing the execution performance.</li>
-                <li>Creating and maintaining CT Pipelines for test automation and integrating them on Azure DevOps. </li>
-                <li>Deploying automation scripts in various environments like Selenium Gird, Browser Stack, and Docker Containers. </li>
-              </ul>
-            </div>
-            <div class="resume-item">
-              <h4>Application Development Senior Analyst</h4>
-              <h5>Accenture</h5>
-              <h5>Jan 2014 - April 2018</h5>
-              <h5>Bangalore and Hyderabad, India</h5>
-              <ul>
-                <li>Leading a team of 6 members and managing the deliverables within the Sprint.</li>
-                <li>A core member of NexGen testing frameworks and contributed effectively to testing techniques.</li>
-                <li>Part of an automation/Innovation team and worked on various teams of the projects and Working as a dedicated QE for an agile team, automating the User stories in Selenium (Java/C#) within the sprint and executing them from Jenkins.</li>
-                <li>Implementing BDD framework based on the application and automating User stories in BDD framework using Selenium, and Designing/Developing automation scripts based on feature file/Scenario(s) which are written in Gherkin and executing the tests using Jenkins.</li>
-                <li>Automated complicated applications like Siebel, Salesforce, SAP and microservices etc. </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="section-title">
-          <p>Please <a href="assets\resume\Resume_SinglePage.pdf">Click</a> here to download the resume.</p>
+          <ul class="timeline-bullets">
+            <li>Designed and built a <strong>Policy Engine</strong> governing merchant onboarding compliance across 8 regions (UK, US, CA, EU+)</li>
+            <li>Built AI-powered <strong>URL screening system</strong> (MCC classification via LLMs) reducing manual review time by 1–2 hrs per merchant</li>
+            <li>Implemented automated merchant requirements flow cutting <strong>Time-to-Live from days to hours</strong> and significantly reducing agent workload</li>
+            <li>Architected <strong>event-driven microservices</strong> on AWS (Lambda, ECS, API Gateway, DynamoDB) with full observability via DataDog</li>
+            <li>Integrated Claude, Gemini, and Cursor AI into onboarding summarisation and risk assessment workflows</li>
+          </ul>
         </div>
       </div>
-    </section><!-- End Resume Section -->
 
-    <!-- ======= Portfolio Section ======= -->
-    <section id="portfolio" class="portfolio section-bg">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
-          <h2>Portfolio</h2>
-          <p>Few Well-known Associated Clients </p>
+      <div class="timeline-item reveal">
+        <div class="timeline-marker"><span class="timeline-dot"></span></div>
+        <div class="glass-card timeline-card">
+          <div class="timeline-header">
+            <div>
+              <h3 class="timeline-role">Senior Analyst</h3>
+              <p class="timeline-company">Cognizant UK&amp;I</p>
+            </div>
+            <div class="timeline-meta">
+              <span class="timeline-date">Nov 2021 – Jun 2022</span>
+              <span class="timeline-location">London, UK</span>
+            </div>
+          </div>
+          <div class="timeline-chips">
+            <span class="chip chip--violet">C#</span>
+            <span class="chip chip--violet">Selenium</span>
+            <span class="chip chip--violet">Azure DevOps</span>
+          </div>
+          <ul class="timeline-bullets">
+            <li>Designed and led end-to-end test automation strategy for ASOS Payment systems using C# and Selenium</li>
+            <li>Built and maintained CI/CD pipelines on Azure DevOps, reducing regression cycle time across critical payment flows</li>
+          </ul>
         </div>
-
-        <div class="row">
-          <div class="col-lg-12 d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
-            <ul id="portfolio-flters">
-              <li data-filter="*" class="filter-active">All</li>
-              <!-- <li data-filter=".filter-app">App</li> -->
-              <!-- <li data-filter=".filter-card">Card</li> -->
-              <!-- <li data-filter=".filter-web">Web</li> -->
-            </ul>
-          </div>
-        </div>
-
-        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
-
-          <div class="col-lg-3 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4><a href="https://www.o2.co.uk/">O2 Telefonica</a></h4>
-                <!-- <div class="portfolio-links">
-                  <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="O2 Telefonica"><i class="bx bx-plus"></i></a>
-                  <a href="https://www.o2.co.uk/" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
-                </div> -->
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 portfolio-item filter-web">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-2.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4><a href="https://www.volvocars.com/se">VolvoCars</a></h4>
-                <!-- <div class="portfolio-links">
-                  <a href="assets/img/portfolio/portfolio-2.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="VolvoCars"><i class="bx bx-plus"></i></a>
-                  <a href="https://www.volvocars.com/se" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
-                </div> -->
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-3.png" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4><a href="https://www.cignaglobal.com/"> Cigna</a></h4>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-4.png" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4><a href="https://www.bmg.com/uk/">BMG</a></h4>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 portfolio-item filter-web">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-5.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4><a href="https://www.arrow.com/">Arrow Electronics</a></h4>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-6.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4><a href="https://www.microsoft.com/en-gb">Microsoft</a></h4>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-7.png" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4><a href="https://account.docusign.com/">DocuSign</a></h4>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-8.png" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4><a href="https://www.asos.com/">ASOS</a></h4>
-              </div>
-            </div>
-          </div>
-
-          
-
-        </div>
-
       </div>
-    </section><!-- End Portfolio Section -->
 
-    <!-- ======= Contact Section ======= -->
-    <section id="contact" class="contact">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
-          <h2>Contact</h2>
+      <div class="timeline-item reveal">
+        <div class="timeline-marker"><span class="timeline-dot"></span></div>
+        <div class="glass-card timeline-card">
+          <div class="timeline-header">
+            <div>
+              <h3 class="timeline-role">Software Development Engineer (SDE)</h3>
+              <p class="timeline-company">DocuSign (Seal Software)</p>
+            </div>
+            <div class="timeline-meta">
+              <span class="timeline-date">Aug – Nov 2021</span>
+              <span class="timeline-location">Gothenburg, Sweden</span>
+            </div>
+          </div>
+          <div class="timeline-chips">
+            <span class="chip chip--violet">Java</span>
+            <span class="chip chip--violet">Micronaut</span>
+            <span class="chip chip--violet">Docker</span>
+            <span class="chip chip--violet">GCP</span>
+            <span class="chip chip--violet">Jenkins</span>
+          </div>
+          <ul class="timeline-bullets">
+            <li>Designed and implemented a microservices test framework from scratch for a SaaS analytics platform (Micronaut, Java)</li>
+            <li>Configured Docker/Kubernetes environments on GCP for containerised test execution and Jenkins pipeline integration</li>
+          </ul>
         </div>
+      </div>
 
-        <div class="row mt-3">
-
-          <div class="col-lg-4">
-            <div class="info">
-              <div class="email">
-                <i class="bi bi-geo-alt"></i>
-                <h4>Location:</h4>
-                <!-- <p> Flat 52, Cosmos Apts</p>
-                <p> 349 High Road</p>
-                <p> Wembley</p> -->
-                <p> London, UK</p>
-               <!--<p> HA9 6ET</p>   -->              
-              </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-marker"><span class="timeline-dot"></span></div>
+        <div class="glass-card timeline-card">
+          <div class="timeline-header">
+            <div>
+              <h3 class="timeline-role">SDET &amp; Automation Tool Developer</h3>
+              <p class="timeline-company">Infosys Limited</p>
+            </div>
+            <div class="timeline-meta">
+              <span class="timeline-date">Apr 2018 – Aug 2021</span>
+              <span class="timeline-location">Gothenburg, Sweden · Hyderabad, India</span>
             </div>
           </div>
-
-          <div class="col-lg-4">
-            <div class="info">
-              <div class="email">
-                <i class="bi bi-envelope"></i>
-                <h4>Email:</h4>
-                <p>nithin.nampalli@gmail.com</p>
-              </div>
-            </div>
+          <div class="timeline-chips">
+            <span class="chip chip--violet">Java</span>
+            <span class="chip chip--violet">Selenium</span>
+            <span class="chip chip--violet">SOAP UI</span>
+            <span class="chip chip--violet">Azure DevOps</span>
+            <span class="chip chip--violet">BrowserStack</span>
           </div>
-
-          <div class="col-lg-4">
-            <div class="info">
-              <div class="phone">
-                <i class="bi bi-phone"></i>
-                <h4>Call:</h4>
-                <p>+44 - 7466 908 790</p>
-              </div>
-            </div>
-          </div>
-
-
+          <ul class="timeline-bullets">
+            <li>Developed reusable automation tooling and API test frameworks (Selenium, Java, SOAP UI) for Volvo Cars and Arrow Electronics</li>
+            <li>Created and maintained CI/CD pipelines on Azure DevOps; deployed cross-browser execution grids on BrowserStack and Docker</li>
+          </ul>
         </div>
-
       </div>
-    </section><!-- End Contact Section -->
 
-  </main><!-- End #main -->
+      <div class="timeline-item reveal">
+        <div class="timeline-marker"><span class="timeline-dot timeline-dot--sm"></span></div>
+        <div class="glass-card timeline-card">
+          <div class="timeline-header">
+            <div>
+              <h3 class="timeline-role">Application Development Senior Analyst</h3>
+              <p class="timeline-company">Accenture</p>
+            </div>
+            <div class="timeline-meta">
+              <span class="timeline-date">Jan 2014 – Apr 2018</span>
+              <span class="timeline-location">Bangalore &amp; Hyderabad, India</span>
+            </div>
+          </div>
+          <div class="timeline-chips">
+            <span class="chip chip--violet">Java</span>
+            <span class="chip chip--violet">C#</span>
+            <span class="chip chip--violet">Selenium</span>
+            <span class="chip chip--violet">BDD/Cucumber</span>
+            <span class="chip chip--violet">Jenkins</span>
+          </div>
+          <ul class="timeline-bullets">
+            <li>Led a team of 6 engineers building automation tooling for enterprise applications (Siebel, Salesforce, SAP) using Selenium and BDD/Cucumber</li>
+            <li>Contributed to NexGen testing framework initiative; automated end-to-end user stories within Agile sprints using Jenkins CI</li>
+          </ul>
+        </div>
+      </div>
 
-  <!-- ======= Footer ======= -->
-  <footer id="footer">
-    <div class="container">
-      <h3>Nithin Nampalli</h3>
-      <p>If you're waiting until you feel talented enough to make it, you'll never make it.</p>
-      <div style="float: center" class="social-links">
-        <a href="https://www.linkedin.com/in/nithin-nampalli/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-        <a href="https://www.facebook.com/nithin13n/" class="facebook"><i class="bx bxl-facebook"></i></a>
-        <a href="https://www.instagram.com/venkynithin/?hl=en" class="instagram"><i class="bx bxl-instagram"></i></a>
-        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+    </div>
+  </div>
+</section>
+    <section id="skills" class="section section--alt">
+  <div class="section-inner">
+    <div class="accent-bar"></div>
+    <p class="section-label">Skills</p>
+    <h2 class="section-title">Tech Stack</h2>
+    <div class="skills-grid reveal">
+      <div class="glass-card skill-group">
+        <h3 class="skill-group-title">☁️ Cloud &amp; Infrastructure</h3>
+        <div class="skill-chips">
+          <span class="chip chip--cyan">AWS Lambda</span>
+          <span class="chip chip--cyan">Amazon ECS</span>
+          <span class="chip chip--cyan">API Gateway</span>
+          <span class="chip chip--cyan">DynamoDB</span>
+          <span class="chip chip--cyan">Docker</span>
+          <span class="chip chip--cyan">Kubernetes</span>
+          <span class="chip chip--cyan">GCP</span>
+        </div>
       </div>
-      <!-- <div style="float: right" >
-        <img src="assets/img/qr.png" width="100" alt="">
-      </div> -->
-      <div class="copyright">
-        &copy; Copyright <strong><span>MyResume</span></strong>. All Rights Reserved
+      <div class="glass-card skill-group">
+        <h3 class="skill-group-title">💻 Languages</h3>
+        <div class="skill-chips">
+          <span class="chip chip--violet">C#</span>
+          <span class="chip chip--violet">Java</span>
+          <span class="chip chip--violet">JavaScript</span>
+          <span class="chip chip--violet">TypeScript</span>
+          <span class="chip chip--violet">Python</span>
+        </div>
       </div>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you purchased the pro version. -->
-        <!-- Licensing information: [license-url] -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/free-html-bootstrap-template-my-resume/ -->
-       Designed by <a href="https://bootstrapmade.com/" >BootstrapMade</a>
+      <div class="glass-card skill-group">
+        <h3 class="skill-group-title">⚛️ Frontend</h3>
+        <div class="skill-chips">
+          <span class="chip chip--violet">React.js</span>
+          <span class="chip chip--violet">Node.js</span>
+          <span class="chip chip--violet">HTML/CSS</span>
+          <span class="chip chip--violet">REST APIs</span>
+        </div>
+      </div>
+      <div class="glass-card skill-group">
+        <h3 class="skill-group-title">🤖 AI Platform Engineering</h3>
+        <div class="skill-chips">
+          <span class="chip chip--green">Claude AI</span>
+          <span class="chip chip--green">Gemini</span>
+          <span class="chip chip--green">Cursor</span>
+          <span class="chip chip--green">LLM Integration</span>
+          <span class="chip chip--green">AI Platform Engineering</span>
+          <span class="chip chip--green">AI Tooling</span>
+          <span class="chip chip--green">AI Automation Pipelines</span>
+        </div>
+      </div>
+      <div class="glass-card skill-group">
+        <h3 class="skill-group-title">📊 Observability &amp; DevOps</h3>
+        <div class="skill-chips">
+          <span class="chip chip--cyan">DataDog</span>
+          <span class="chip chip--cyan">Jenkins</span>
+          <span class="chip chip--cyan">Azure DevOps</span>
+          <span class="chip chip--cyan">Git</span>
+          <span class="chip chip--cyan">CI/CD</span>
+        </div>
+      </div>
+      <div class="glass-card skill-group">
+        <h3 class="skill-group-title">🧪 Testing &amp; QA</h3>
+        <div class="skill-chips">
+          <span class="chip chip--violet">Selenium</span>
+          <span class="chip chip--violet">Cypress</span>
+          <span class="chip chip--violet">WebDriverIO</span>
+          <span class="chip chip--violet">BDD/Cucumber</span>
+          <span class="chip chip--violet">Postman</span>
+        </div>
       </div>
     </div>
-  </footer><!-- End Footer -->
+  </div>
+</section>
+    <section id="projects" class="section">
+  <div class="section-inner">
+    <div class="accent-bar"></div>
+    <p class="section-label">Featured Work</p>
+    <h2 class="section-title">What I've Built</h2>
+    <div class="projects-grid">
 
-  <div id="preloader"></div>
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+      <div class="glass-card project-card project-card--featured reveal" id="policyEngineCard">
+        <div class="project-header">
+          <span class="project-tag">Checkout.com · 2022–Present</span>
+          <span class="chip chip--cyan">Featured</span>
+        </div>
+        <h3 class="project-title">Policy Engine</h3>
+        <p class="project-desc">Region-aware compliance decisioning system governing merchant onboarding across 8 global markets. Evaluates country-specific regulatory rules in real time for every new merchant.</p>
+        <div class="policy-flow" id="policyFlow" aria-label="Policy engine decision flow">
+          <div class="flow-step" data-step="0">🌐 Merchant URL</div>
+          <div class="flow-arrow" aria-hidden="true">→</div>
+          <div class="flow-step" data-step="1">🤖 AI Screening</div>
+          <div class="flow-arrow" aria-hidden="true">→</div>
+          <div class="flow-step" data-step="2">🌍 Region Check</div>
+          <div class="flow-arrow" aria-hidden="true">→</div>
+          <div class="flow-step" data-step="3">⚖️ Compliance</div>
+          <div class="flow-arrow" aria-hidden="true">→</div>
+          <div class="flow-step flow-step--decision" data-step="4">✅ Decision</div>
+        </div>
+        <div class="project-chips">
+          <span class="chip chip--cyan">C#</span>
+          <span class="chip chip--cyan">AWS Lambda</span>
+          <span class="chip chip--cyan">DynamoDB</span>
+          <span class="chip chip--cyan">Event-Driven</span>
+          <span class="chip chip--cyan">API Gateway</span>
+        </div>
+      </div>
 
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/purecounter/purecounter.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/typed.js/typed.min.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
+      <div class="glass-card project-card reveal">
+        <div class="project-header">
+          <span class="project-tag">Checkout.com · 2023</span>
+        </div>
+        <h3 class="project-title">AI Merchant URL Screener</h3>
+        <p class="project-desc">LLM-powered system that classifies Merchant Category Codes (MCC) directly from URLs, eliminating 1–2 hours of manual review per merchant onboarded.</p>
+        <div class="project-impact">
+          <span class="impact-pill">⚡ 1–2 hrs saved / merchant</span>
+          <span class="impact-pill">🤖 LLM-based classification</span>
+        </div>
+        <div class="project-chips">
+          <span class="chip chip--green">Claude AI</span>
+          <span class="chip chip--green">Gemini</span>
+          <span class="chip chip--cyan">AWS</span>
+          <span class="chip chip--violet">C#</span>
+        </div>
+      </div>
 
-  <!-- Template Main JS File -->
+      <div class="glass-card project-card reveal">
+        <div class="project-header">
+          <span class="project-tag">Checkout.com · 2024</span>
+        </div>
+        <h3 class="project-title">Merchant Requirements Automation</h3>
+        <p class="project-desc">Automated flow that raises compliance requirements directly to merchants, replacing manual agent review and cutting merchant Time-to-Live from days to hours.</p>
+        <div class="project-impact">
+          <span class="impact-pill">🚀 Days → Hours TTL</span>
+          <span class="impact-pill">📉 Reduced agent workload</span>
+        </div>
+        <div class="project-chips">
+          <span class="chip chip--cyan">ECS</span>
+          <span class="chip chip--cyan">API Gateway</span>
+          <span class="chip chip--violet">React.js</span>
+          <span class="chip chip--cyan">DataDog</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+    <section id="impact" class="section">
+  <div class="section-inner">
+    <p class="section-label">By the numbers</p>
+    <div class="impact-grid">
+      <div class="glass-card impact-card reveal" data-count-end="12" data-count-suffix="+">
+        <div class="impact-icon">📅</div>
+        <div class="impact-value"><span class="count-val">0</span>+ yrs</div>
+        <div class="impact-label">Engineering experience across Fintech, Payments &amp; Enterprise</div>
+      </div>
+      <div class="glass-card impact-card reveal" data-count-end="2" data-count-suffix=" hrs" data-count-prefix="1–">
+        <div class="impact-icon">⚡</div>
+        <div class="impact-value"><span class="count-val">0</span> hrs</div>
+        <div class="impact-label">Saved per merchant onboarded via URL automation</div>
+      </div>
+      <div class="glass-card impact-card reveal" data-count-end="8" data-count-suffix="">
+        <div class="impact-icon">🌍</div>
+        <div class="impact-value"><span class="count-val">0</span> regions</div>
+        <div class="impact-label">Covered by the Policy Engine (UK, US, CA, EU+)</div>
+      </div>
+      <div class="glass-card impact-card reveal" data-count-type="text" data-count-text="Days → Hours">
+        <div class="impact-icon">🚀</div>
+        <div class="impact-value"><span class="count-val">—</span></div>
+        <div class="impact-label">Merchant Time-to-Live, reduced by automated requirements flow</div>
+      </div>
+      <div class="glass-card impact-card reveal" data-count-type="text" data-count-text="10hrs → 1hr">
+        <div class="impact-icon">⏱️</div>
+        <div class="impact-value"><span class="count-val">—</span></div>
+        <div class="impact-label">Automation execution time reduced through parallelisation &amp; grid strategies</div>
+      </div>
+    </div>
+  </div>
+</section>
+    <section id="contact" class="section section--alt">
+  <div class="section-inner">
+    <div class="accent-bar"></div>
+    <p class="section-label">Contact</p>
+    <h2 class="section-title">Let's Talk</h2>
+    <p class="contact-sub">Open to Senior Software Engineer and Staff Engineer opportunities at Fintechs, payments companies, and cloud-native startups.</p>
+    <div class="contact-grid reveal">
+      <a href="mailto:nithin.nampalli@gmail.com" class="glass-card contact-card magnetic">
+        <span class="contact-icon">✉️</span>
+        <span class="contact-label">Email</span>
+        <span class="contact-value">nithin.nampalli@gmail.com</span>
+      </a>
+      <a href="https://www.linkedin.com/in/nithin-nampalli/" target="_blank" rel="noopener" class="glass-card contact-card magnetic">
+        <span class="contact-icon">💼</span>
+        <span class="contact-label">LinkedIn</span>
+        <span class="contact-value">nithin-nampalli</span>
+      </a>
+      <a href="https://github.com/nithinnampalli" target="_blank" rel="noopener" class="glass-card contact-card magnetic">
+        <span class="contact-icon">🐙</span>
+        <span class="contact-label">GitHub</span>
+        <span class="contact-value">nithinnampalli</span>
+      </a>
+      <a href="resume.html" target="_blank" class="glass-card contact-card magnetic">
+        <span class="contact-icon">📄</span>
+        <span class="contact-label">Resume</span>
+        <span class="contact-value">View &amp; Download PDF</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Nithin Nampalli · London, UK · <span class="footer-mono">Senior Software Engineer</span></p>
+  <p class="footer-kbd">Press <kbd>⌘K</kbd> to navigate</p>
+</footer>
+  </main>
+
+  <!-- Command palette -->
+  <div class="palette-overlay" id="paletteOverlay">
+    <div class="palette" id="palette">
+      <div class="palette-input-wrap">
+        <span class="palette-icon">⌘</span>
+        <input type="text" class="palette-input" id="paletteInput" placeholder="Type a command or jump to...">
+      </div>
+      <ul class="palette-results" id="paletteResults"></ul>
+    </div>
+  </div>
+
   <script src="assets/js/main.js"></script>
-
 </body>
-
 </html>

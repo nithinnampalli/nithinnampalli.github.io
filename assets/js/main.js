@@ -1,264 +1,273 @@
-/**
-* Template Name: MyResume - v4.7.0
-* Template URL: https://bootstrapmade.com/free-html-bootstrap-template-my-resume/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
-(function() {
-  "use strict";
+/* ============================================================
+   PAYMENT GRAPH CANVAS
+   ============================================================ */
+(function initPaymentGraph() {
+  const canvas = document.getElementById('paymentGraph');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const NODES = 28, MAX_DIST = 180;
+  let nodes = [], W, H;
 
-  /**
-   * Easy selector helper function
-   */
-  const select = (el, all = false) => {
-    el = el.trim()
-    if (all) {
-      return [...document.querySelectorAll(el)]
+  function resize() {
+    W = canvas.width  = canvas.offsetWidth;
+    H = canvas.height = canvas.offsetHeight;
+  }
+  function randomNode() {
+    return { x: Math.random()*W, y: Math.random()*H, vx:(Math.random()-0.5)*0.4, vy:(Math.random()-0.5)*0.4, r:Math.random()*2+1.5, pulse:Math.random()*Math.PI*2 };
+  }
+  function init() { resize(); nodes = Array.from({length:NODES}, randomNode); }
+  function draw() {
+    ctx.clearRect(0,0,W,H);
+    for (let i=0;i<nodes.length;i++) {
+      for (let j=i+1;j<nodes.length;j++) {
+        const dx=nodes[i].x-nodes[j].x, dy=nodes[i].y-nodes[j].y;
+        const dist=Math.sqrt(dx*dx+dy*dy);
+        if (dist<MAX_DIST) {
+          ctx.beginPath();
+          ctx.strokeStyle=`rgba(0,212,255,${(1-dist/MAX_DIST)*0.35})`;
+          ctx.lineWidth=0.8;
+          ctx.moveTo(nodes[i].x,nodes[i].y);
+          ctx.lineTo(nodes[j].x,nodes[j].y);
+          ctx.stroke();
+        }
+      }
+    }
+    nodes.forEach(n=>{
+      n.pulse+=0.02;
+      const glow=Math.sin(n.pulse)*0.3+0.7;
+      ctx.beginPath();
+      ctx.arc(n.x,n.y,n.r*glow,0,Math.PI*2);
+      ctx.fillStyle=`rgba(0,212,255,${0.6*glow})`;
+      ctx.fill();
+      n.x+=n.vx; n.y+=n.vy;
+      if(n.x<0||n.x>W) n.vx*=-1;
+      if(n.y<0||n.y>H) n.vy*=-1;
+    });
+    requestAnimationFrame(draw);
+  }
+  init(); draw();
+  window.addEventListener('resize', resize);
+})();
+
+/* ============================================================
+   TYPED ROLE ANIMATION
+   ============================================================ */
+(function initTyped() {
+  const el = document.getElementById('typedRole');
+  if (!el) return;
+  const roles = ['Senior Software Engineer','Fintech Platform Engineer','Cloud & AI Integrations Lead'];
+  let ri=0, ci=0, deleting=false;
+  function tick() {
+    const word=roles[ri];
+    if (!deleting) {
+      el.textContent=word.slice(0,++ci);
+      if (ci===word.length){deleting=true;setTimeout(tick,2200);return;}
+      setTimeout(tick,75);
     } else {
-      return document.querySelector(el)
+      el.textContent=word.slice(0,--ci);
+      if (ci===0){deleting=false;ri=(ri+1)%roles.length;}
+      setTimeout(tick,40);
     }
   }
+  setTimeout(tick,800);
+})();
 
-  /**
-   * Easy event listener function
-   */
-  const on = (type, el, listener, all = false) => {
-    let selectEl = select(el, all)
-    if (selectEl) {
-      if (all) {
-        selectEl.forEach(e => e.addEventListener(type, listener))
-      } else {
-        selectEl.addEventListener(type, listener)
-      }
-    }
-  }
-
-  /**
-   * Easy on scroll event listener 
-   */
-  const onscroll = (el, listener) => {
-    el.addEventListener('scroll', listener)
-  }
-
-  /**
-   * Navbar links active state on scroll
-   */
-  let navbarlinks = select('#navbar .scrollto', true)
-  const navbarlinksActive = () => {
-    let position = window.scrollY + 200
-    navbarlinks.forEach(navbarlink => {
-      if (!navbarlink.hash) return
-      let section = select(navbarlink.hash)
-      if (!section) return
-      if (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight)) {
-        navbarlink.classList.add('active')
-      } else {
-        navbarlink.classList.remove('active')
-      }
-    })
-  }
-  window.addEventListener('load', navbarlinksActive)
-  onscroll(document, navbarlinksActive)
-
-  /**
-   * Scrolls to an element with header offset
-   */
-  const scrollto = (el) => {
-    let elementPos = select(el).offsetTop
-    window.scrollTo({
-      top: elementPos,
-      behavior: 'smooth'
-    })
-  }
-
-  /**
-   * Back to top button
-   */
-  let backtotop = select('.back-to-top')
-  if (backtotop) {
-    const toggleBacktotop = () => {
-      if (window.scrollY > 100) {
-        backtotop.classList.add('active')
-      } else {
-        backtotop.classList.remove('active')
-      }
-    }
-    window.addEventListener('load', toggleBacktotop)
-    onscroll(document, toggleBacktotop)
-  }
-
-  /**
-   * Mobile nav toggle
-   */
-  on('click', '.mobile-nav-toggle', function(e) {
-    select('body').classList.toggle('mobile-nav-active')
-    this.classList.toggle('bi-list')
-    this.classList.toggle('bi-x')
-  })
-
-  /**
-   * Scrool with ofset on links with a class name .scrollto
-   */
-  on('click', '.scrollto', function(e) {
-    if (select(this.hash)) {
-      e.preventDefault()
-
-      let body = select('body')
-      if (body.classList.contains('mobile-nav-active')) {
-        body.classList.remove('mobile-nav-active')
-        let navbarToggle = select('.mobile-nav-toggle')
-        navbarToggle.classList.toggle('bi-list')
-        navbarToggle.classList.toggle('bi-x')
-      }
-      scrollto(this.hash)
-    }
-  }, true)
-
-  /**
-   * Scroll with ofset on page load with hash links in the url
-   */
-  window.addEventListener('load', () => {
-    if (window.location.hash) {
-      if (select(window.location.hash)) {
-        scrollto(window.location.hash)
-      }
-    }
+/* ============================================================
+   MAGNETIC CURSOR
+   ============================================================ */
+(function initCursor() {
+  const cursor=document.getElementById('cursor');
+  const follower=document.getElementById('cursorFollower');
+  if (!cursor) return;
+  let mx=0,my=0,fx=0,fy=0;
+  document.addEventListener('mousemove',e=>{
+    mx=e.clientX; my=e.clientY;
+    cursor.style.left=mx+'px'; cursor.style.top=my+'px';
   });
+  (function animateFollower(){
+    fx+=(mx-fx)*0.12; fy+=(my-fy)*0.12;
+    follower.style.left=fx+'px'; follower.style.top=fy+'px';
+    requestAnimationFrame(animateFollower);
+  })();
+  document.querySelectorAll('a,button,.magnetic').forEach(el=>{
+    el.addEventListener('mouseenter',()=>{cursor.classList.add('hovering');follower.classList.add('hovering');});
+    el.addEventListener('mouseleave',()=>{cursor.classList.remove('hovering');follower.classList.remove('hovering');});
+  });
+})();
 
-  /**
-   * Preloader
-   */
-  let preloader = select('#preloader');
-  if (preloader) {
-    window.addEventListener('load', () => {
-      preloader.remove()
+/* ============================================================
+   IMPACT COUNT-UP
+   ============================================================ */
+(function initCountUp() {
+  const cards = document.querySelectorAll('.impact-card');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      obs.unobserve(entry.target);
+      const card = entry.target;
+      const el   = card.querySelector('.count-val');
+      const type = card.dataset.countType;
+      if (type === 'text') {
+        const text = card.dataset.countText;
+        let i = 0; el.textContent = '';
+        const t = setInterval(() => { el.textContent = text.slice(0,++i); if(i>=text.length) clearInterval(t); }, 60);
+        return;
+      }
+      const end = parseInt(card.dataset.countEnd, 10);
+      const duration = 1200, start = performance.now();
+      function step(now) {
+        const progress = Math.min((now-start)/duration, 1);
+        const ease = 1-Math.pow(1-progress,3);
+        el.textContent = Math.round(ease*end);
+        if (progress<1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
     });
-  }
+  }, { threshold: 0.4 });
+  cards.forEach(c => obs.observe(c));
+})();
 
-  /**
-   * Hero type effect
-   */
-  const typed = select('.typed')
-  if (typed) {
-    let typed_strings = typed.getAttribute('data-typed-items')
-    typed_strings = typed_strings.split(',')
-    new Typed('.typed', {
-      strings: typed_strings,
-      loop: true,
-      typeSpeed: 100,
-      backSpeed: 50,
-      backDelay: 2000
-    });
-  }
+/* ============================================================
+   POLICY ENGINE FLOW ANIMATION
+   ============================================================ */
+(function initPolicyFlow() {
+  const steps = document.querySelectorAll('.flow-step');
+  const card  = document.getElementById('policyEngineCard');
+  if (!steps.length || !card) return;
+  let current = 0, timer;
 
-  /**
-   * Skills animation
-   */
-  let skilsContent = select('.skills-content');
-  if (skilsContent) {
-    new Waypoint({
-      element: skilsContent,
-      offset: '80%',
-      handler: function(direction) {
-        let progress = select('.progress .progress-bar', true);
-        progress.forEach((el) => {
-          el.style.width = el.getAttribute('aria-valuenow') + '%'
-        });
+  const obs = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting) startFlow(); else stopFlow();
+  }, { threshold: 0.3 });
+  obs.observe(card);
+
+  function startFlow() {
+    if (timer) return;
+    timer = setInterval(() => {
+      steps.forEach(s => s.classList.remove('active'));
+      steps[current].classList.add('active');
+      current = (current + 1) % steps.length;
+    }, 900);
+  }
+  function stopFlow() {
+    clearInterval(timer); timer = null;
+    steps.forEach(s => s.classList.remove('active')); current = 0;
+  }
+})();
+
+/* ============================================================
+   COMMAND PALETTE
+   ============================================================ */
+(function initCommandPalette() {
+  const overlay = document.getElementById('paletteOverlay');
+  const input   = document.getElementById('paletteInput');
+  const results = document.getElementById('paletteResults');
+  if (!overlay) return;
+
+  const commands = [
+    { icon: '🏠', label: 'Go to Home',      action: () => nav('#hero'),       group: 'Navigate' },
+    { icon: '⚡', label: 'Go to Impact',     action: () => nav('#impact'),     group: 'Navigate' },
+    { icon: '👤', label: 'Go to About',      action: () => nav('#about'),      group: 'Navigate' },
+    { icon: '📋', label: 'Go to Experience', action: () => nav('#experience'), group: 'Navigate' },
+    { icon: '🛠', label: 'Go to Skills',     action: () => nav('#skills'),     group: 'Navigate' },
+    { icon: '🚀', label: 'Go to Projects',   action: () => nav('#projects'),   group: 'Navigate' },
+    { icon: '✉️', label: 'Go to Contact',    action: () => nav('#contact'),    group: 'Navigate' },
+    { icon: '📄', label: 'View Resume',      action: () => window.open('resume.html','_blank'), group: 'Actions' },
+    { icon: '💼', label: 'Open LinkedIn',    action: () => window.open('https://www.linkedin.com/in/nithin-nampalli/','_blank'), group: 'Actions' },
+    { icon: '🐙', label: 'Open GitHub',      action: () => window.open('https://github.com/nithinnampalli','_blank'), group: 'Actions' },
+    { icon: '✉️', label: 'Send Email',       action: () => { location.href='mailto:nithin.nampalli@gmail.com'; }, group: 'Actions' },
+  ];
+
+  function nav(sel) { document.querySelector(sel)?.scrollIntoView({ behavior: 'smooth' }); }
+
+  let selected = 0;
+
+  function openPalette() {
+    overlay.classList.add('open');
+    input.value = ''; selected = 0;
+    renderItems('');
+    setTimeout(() => input.focus(), 50);
+  }
+  function closePalette() { overlay.classList.remove('open'); }
+
+  function renderItems(query) {
+    const q = query.toLowerCase();
+    const filtered = commands.filter(c => c.label.toLowerCase().includes(q));
+    results.innerHTML = '';
+    let lastGroup = '';
+    filtered.forEach((cmd, i) => {
+      if (cmd.group !== lastGroup) {
+        const lbl = document.createElement('div');
+        lbl.className = 'palette-section-label';
+        lbl.textContent = cmd.group;
+        results.appendChild(lbl);
+        lastGroup = cmd.group;
       }
-    })
+      const li = document.createElement('li');
+      li.className = 'palette-item' + (i === selected ? ' selected' : '');
+      li.innerHTML = `<span class="palette-item-icon">${cmd.icon}</span><span class="palette-item-label">${cmd.label}</span>`;
+      li.addEventListener('click', () => { cmd.action(); closePalette(); });
+      results.appendChild(li);
+    });
+    selected = Math.min(selected, Math.max(filtered.length - 1, 0));
   }
 
-  /**
-   * Porfolio isotope and filter
-   */
-  window.addEventListener('load', () => {
-    let portfolioContainer = select('.portfolio-container');
-    if (portfolioContainer) {
-      let portfolioIsotope = new Isotope(portfolioContainer, {
-        itemSelector: '.portfolio-item'
-      });
-
-      let portfolioFilters = select('#portfolio-flters li', true);
-
-      on('click', '#portfolio-flters li', function(e) {
-        e.preventDefault();
-        portfolioFilters.forEach(function(el) {
-          el.classList.remove('filter-active');
-        });
-        this.classList.add('filter-active');
-
-        portfolioIsotope.arrange({
-          filter: this.getAttribute('data-filter')
-        });
-        portfolioIsotope.on('arrangeComplete', function() {
-          AOS.refresh()
-        });
-      }, true);
+  document.addEventListener('keydown', e => {
+    if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+      e.preventDefault();
+      overlay.classList.contains('open') ? closePalette() : openPalette();
     }
-
-  });
-
-  /**
-   * Initiate portfolio lightbox 
-   */
-  const portfolioLightbox = GLightbox({
-    selector: '.portfolio-lightbox'
-  });
-
-  /**
-   * Initiate portfolio details lightbox 
-   */
-  const portfolioDetailsLightbox = GLightbox({
-    selector: '.portfolio-details-lightbox',
-    width: '90%',
-    height: '90vh'
-  });
-
-  /**
-   * Portfolio details slider
-   */
-  new Swiper('.portfolio-details-slider', {
-    speed: 400,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
+    if (!overlay.classList.contains('open')) return;
+    if (e.key === 'Escape') closePalette();
+    if (e.key === 'ArrowDown') { selected++; renderItems(input.value); }
+    if (e.key === 'ArrowUp')   { selected = Math.max(0, selected-1); renderItems(input.value); }
+    if (e.key === 'Enter') {
+      const items = results.querySelectorAll('.palette-item');
+      if (items[selected]) items[selected].click();
     }
   });
+  input.addEventListener('input', e => { selected = 0; renderItems(e.target.value); });
+  overlay.addEventListener('click', e => { if (e.target === overlay) closePalette(); });
+})();
 
-  /**
-   * Testimonials slider
-   */
-  new Swiper('.testimonials-slider', {
-    speed: 600,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
-    },
-    slidesPerView: 'auto',
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
-    }
+/* ============================================================
+   SCROLL REVEAL
+   ============================================================ */
+(function initScrollReveal() {
+  const els = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  els.forEach(el => obs.observe(el));
+})();
+
+/* ============================================================
+   ACTIVE NAV ON SCROLL
+   ============================================================ */
+(function initActiveNav() {
+  const sections = document.querySelectorAll('section[id]');
+  const links    = document.querySelectorAll('.nav-link');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + e.target.id));
+      }
+    });
+  }, { rootMargin: '-40% 0px -55% 0px' });
+  sections.forEach(s => obs.observe(s));
+})();
+
+/* ============================================================
+   MOBILE NAV TOGGLE
+   ============================================================ */
+(function initMobileNav() {
+  const toggle = document.getElementById('navToggle');
+  const navbar = document.getElementById('navbar');
+  if (!toggle) return;
+  toggle.addEventListener('click', () => navbar.classList.toggle('open'));
+  document.querySelectorAll('.nav-link').forEach(l => {
+    l.addEventListener('click', () => navbar.classList.remove('open'));
   });
-
-  /**
-   * Animation on scroll
-   */
-  window.addEventListener('load', () => {
-    AOS.init({
-      duration: 1000,
-      easing: 'ease-in-out',
-      once: true,
-      mirror: false
-    })
-  });
-
-})()
+})();
